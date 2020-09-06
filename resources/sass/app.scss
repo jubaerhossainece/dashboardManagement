@@ -1,0 +1,45 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+@import 'Custom';
+@import 'Tooltip';
+$fa-font-path: "../webfonts";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~admin-lte/dist/css/adminlte.css';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
+*:focus{
+  outline: 0 !important;
+}
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    box-shadow: none !important;
+}
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.router-link-exact-active{
+	background-color: #4639df !important;
+	color: white !important;
+}

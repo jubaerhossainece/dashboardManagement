@@ -1,0 +1,50 @@
+
+// /*We will use custom styling for a tooltip*/
+
+button.btn-action {
+	position : relative;
+}
+button.btn-action span {
+	top : 2.5rem;
+	left : 50%;
+	transform : translateX(-50%);
+	line-height : 1;
+	border-radius : 3px;
+	z-index: 10;
+	white-space : nowrap;
+	height: auto;
+	padding : 0.5rem 0.6rem;
+	font-size : 0.9rem;
+	font-weight : 400;
+	color: white;
+	text-align: center;
+	background: black;
+	position: absolute;
+    pointer-events: none;
+	opacity: 0;
+}
+
+button.btn-action:hover span {
+	opacity : 0.95;
+	top: 2rem;
+	transition: all 0.3s ease-in-out;
+	display : block;
+}
+
+button.btn-action span:hover {
+	opacity : 0.95;
+	display : none;
+}
+button.btn-action span::after {
+	content : " ";
+	position : absolute;
+	bottom : 100%;
+	left : 50%;
+	margin-left : -5px;
+	border-width : 5px;
+	border-style : solid;
+	border-color : transparent transparent black transparent;
+	opacity : 0.95;
+}
+
+// End of tooltip section
