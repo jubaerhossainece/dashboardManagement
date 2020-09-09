@@ -2083,6 +2083,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -44060,13 +44076,13 @@ var render = function() {
                       _c(
                         "label",
                         {
-                          staticClass: "col-sm-2 col-form-label",
+                          staticClass: "col-lg-3 col-form-label",
                           attrs: { for: "inputName" }
                         },
                         [_vm._v("Name")]
                       ),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
+                      _c("div", { staticClass: "col-lg-9" }, [
                         _c("input", {
                           directives: [
                             {
@@ -44100,13 +44116,13 @@ var render = function() {
                       _c(
                         "label",
                         {
-                          staticClass: "col-sm-2 col-form-label",
+                          staticClass: "col-lg-3 col-form-label",
                           attrs: { for: "inputEmail", name: "email" }
                         },
                         [_vm._v("Email")]
                       ),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
+                      _c("div", { staticClass: "col-lg-9" }, [
                         _c("input", {
                           directives: [
                             {
@@ -44143,27 +44159,79 @@ var render = function() {
                       _c(
                         "label",
                         {
-                          staticClass: "col-sm-2 col-form-label",
-                          attrs: { for: "inputSkills" }
+                          staticClass: "col-lg-3 col-form-label",
+                          attrs: { for: "exampleInputFile" }
                         },
                         [_vm._v("Profile Photo")]
                       ),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
-                        _c("input", {
-                          staticClass: "form-input",
-                          attrs: { type: "file", name: "profilePicture" },
-                          on: { change: _vm.changePhoto }
-                        })
+                      _c("div", { staticClass: "col-lg-9 input-group" }, [
+                        _c("div", { staticClass: "custom-file" }, [
+                          _c("input", {
+                            staticClass: "custom-file-input",
+                            attrs: {
+                              type: "file",
+                              name: "profilePicture",
+                              id: "exampleInputFile"
+                            },
+                            on: { change: _vm.changePhoto }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "custom-file-label",
+                              staticStyle: { "font-weight": "300" },
+                              attrs: { for: "exampleInputFile" }
+                            },
+                            [_vm._v("Choose file")]
+                          )
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
                     _vm._m(6),
                     _vm._v(" "),
-                    _vm._m(7),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-lg-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.password,
+                              expression: "form.password"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            id: "password",
+                            placeholder: "password"
+                          },
+                          domProps: { value: _vm.form.password },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "password",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(8),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group row" }, [
-                      _c("div", { staticClass: "offset-sm-2 col-sm-10" }, [
+                      _c("div", { staticClass: "offset-lg-3 col-lg-9" }, [
                         _c(
                           "button",
                           {
@@ -44176,7 +44244,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("Submit")]
+                          [_vm._v("Update Profile")]
                         )
                       ])
                     ])
@@ -44499,13 +44567,13 @@ var staticRenderFns = [
       _c(
         "label",
         {
-          staticClass: "col-sm-2 col-form-label",
+          staticClass: "col-lg-3 col-form-label",
           attrs: { for: "inputName2" }
         },
         [_vm._v("Name")]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
+      _c("div", { staticClass: "col-lg-9" }, [
         _c("input", {
           staticClass: "form-control",
           attrs: { type: "text", id: "inputName2", placeholder: "Name" }
@@ -44521,13 +44589,13 @@ var staticRenderFns = [
       _c(
         "label",
         {
-          staticClass: "col-sm-2 col-form-label",
+          staticClass: "col-lg-3 col-form-label",
           attrs: { for: "inputExperience" }
         },
         [_vm._v("Experience")]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
+      _c("div", { staticClass: "col-lg-9" }, [
         _c("textarea", {
           staticClass: "form-control",
           attrs: { id: "inputExperience", placeholder: "Experience" }
@@ -44543,13 +44611,13 @@ var staticRenderFns = [
       _c(
         "label",
         {
-          staticClass: "col-sm-2 col-form-label",
+          staticClass: "col-lg-3 col-form-label",
           attrs: { for: "inputSkills" }
         },
         [_vm._v("Skills")]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
+      _c("div", { staticClass: "col-lg-9" }, [
         _c("input", {
           staticClass: "form-control",
           attrs: { type: "text", id: "inputSkills", placeholder: "Skills" }
@@ -44561,8 +44629,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-lg-3 col-form-label",
+        attrs: { for: "password", name: "password" }
+      },
+      [
+        _vm._v("Password "),
+        _c("span", { staticStyle: { "font-weight": "300" } }, [
+          _vm._v("(Leave empty if not changing)")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group row" }, [
-      _c("div", { staticClass: "offset-sm-2 col-sm-10" }, [
+      _c("div", { staticClass: "offset-lg-3 col-lg-9" }, [
         _c("div", { staticClass: "checkbox" }, [
           _c("label", [
             _c("input", { attrs: { type: "checkbox" } }),
@@ -61672,9 +61758,9 @@ Vue.filter('truncate', function (text, length) {
 
 
 Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_2___default.a, {
-  color: 'rgb(143, 255, 199)',
+  color: '#08DF69',
   failedColor: 'red',
-  height: '6px'
+  thickness: '6px'
 }); //Sweetalert setup codes
 
 

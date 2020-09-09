@@ -74,9 +74,9 @@ Vue.filter('truncate', function(text, length) {
 import VueProgressBar from 'vue-progressbar'
 
 Vue.use(VueProgressBar, {
-	color: 'rgb(143, 255, 199)',
+	color: '#08DF69',
 	failedColor: 'red',
-	height: '6px'
+	thickness: '6px'
 })
 
 

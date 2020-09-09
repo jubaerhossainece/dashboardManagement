@@ -208,43 +208,59 @@
                   <div class="tab-pane" id="settings">
                     <form class="form-horizontal">
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
+                        <label for="inputName" class="col-lg-3 col-form-label">Name</label>
+                        <div class="col-lg-9">
                           <input type="text" v-model = "form.name" name="name" class="form-control" id="inputName" placeholder="Name">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" name="email" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
+                        <label for="inputEmail" name="email" class="col-lg-3 col-form-label">Email</label>
+                        <div class="col-lg-9">
                           <input type="email" v-model="form.email" class="form-control" id="inputEmail" placeholder="Email">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
+                        <label for="inputName2" class="col-lg-3 col-form-label">Name</label>
+                        <div class="col-lg-9">
                           <input type="text" class="form-control" id="inputName2" placeholder="Name">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                        <div class="col-sm-10">
+                        <label for="inputExperience" class="col-lg-3 col-form-label">Experience</label>
+                        <div class="col-lg-9">
                           <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Profile Photo</label>
-                        <div class="col-sm-10">
-                          <input type="file" @change="changePhoto" name="profilePicture" class="form-input">
+                        <label for="exampleInputFile" class="col-lg-3 col-form-label">Profile Photo</label>
+                        <div class="col-lg-9 input-group">
+                          <div class="custom-file">
+                            <input type="file" @change="changePhoto" name="profilePicture" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile" style="font-weight: 300">Choose file</label>
+                          </div>
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                     <!--  <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Profile Photo</label>
                         <div class="col-sm-10">
+                          <input type="file" @change="changePhoto" 
+                          name="profilePicture" class="form-input">
+                        </div>
+                      </div> -->
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-lg-3 col-form-label">Skills</label>
+                        <div class="col-lg-9">
                           <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
+                        <label for="password" name="password" class="col-lg-3 col-form-label">Password <span style="font-weight: 300">(Leave empty if not changing)</span></label>
+                        <div class="col-lg-9">
+                          <input type="email" v-model="form.password" class="form-control" id="password" placeholder="password">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-lg-3 col-lg-9">
                           <div class="checkbox">
                             <label>
                               <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
@@ -253,8 +269,8 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" @click.prevent="updateInfo" class="bttn btn-edit">Submit</button>
+                        <div class="offset-lg-3 col-lg-9">
+                          <button type="submit" @click.prevent="updateInfo" class="bttn btn-edit">Update Profile</button>
                         </div>
                       </div>
                     </form>
