@@ -44207,7 +44207,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "email",
+                            type: "password",
                             id: "password",
                             placeholder: "password"
                           },

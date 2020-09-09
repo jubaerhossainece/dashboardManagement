@@ -256,7 +256,7 @@
                       <div class="form-group row">
                         <label for="password" name="password" class="col-lg-3 col-form-label">Password <span style="font-weight: 300">(Leave empty if not changing)</span></label>
                         <div class="col-lg-9">
-                          <input type="email" v-model="form.password" class="form-control" id="password" placeholder="password">
+                          <input type="password" v-model="form.password" class="form-control" id="password" placeholder="password">
                         </div>
                       </div>
                       <div class="form-group row">

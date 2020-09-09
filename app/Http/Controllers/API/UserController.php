@@ -34,38 +34,7 @@ class UserController extends Controller
         return new UserCollection(User::orderBy('id', 'DESC')->paginate(10));
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function profile()
-    {
-        return auth('api')->user();
-    }
-
-    public function updateProfile(Request $request){
-        $user = auth('api')->user();
-        request()->validate([
-            'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
-            'password' => 'sometimes|required|min:6|string',
-            'type' => 'required',
-            'bio' => 'required'
-        ]);
-
-        $currentPhoto = $user->photo;
-        if($request->photo != $currentPhoto) {
-            $name = time().'.'.explode('/',explode(':', substr($request->photo, 0, strpos($request->photo, ';')))[1])[1];
-
-            \Image::make($request->photo)->save(public_path('images/profile/').$name);
-            $request->merge(['photo' => $name]);
-        }
-
-        $user->update($request->all());
-        return ['message', 'success'];
-    }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -144,6 +113,43 @@ class UserController extends Controller
 
         return ['message' => 'User Deleted!'];
     }
+
+       /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function profile()
+    {
+        return auth('api')->user();
+    }
+
+    public function updateProfile(Request $request){
+        $user = auth('api')->user();
+        request()->validate([
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
+            'password' => 'sometimes|required|min:6|string',
+            'type' => 'required',
+            'bio' => 'required'
+        ]);
+
+        $currentPhoto = $user->photo;
+        if($request->photo != $currentPhoto) {
+            $name = time().'.'.explode('/',explode(':', substr($request->photo, 0, strpos($request->photo, ';')))[1])[1];
+
+            \Image::make($request->photo)->save(public_path('images/profile/').$name);
+            $request->merge(['photo' => $name]);
+        }
+
+        if(!empty($request->password)){
+            $request->password = '123123';
+        }
+
+        $user->update($request->all());
+        return ['message', 'success'];
+    }
+
 
     protected function validateData(){
 
