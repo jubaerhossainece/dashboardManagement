@@ -13127,9 +13127,7 @@ a.text-muted:hover {
   color: #6cb2eb;
 }
 
-input[type=text],
-input[type=email],
-input[type=password] {
+input {
   border-radius: 3px !important;
   transition: 0.3s !important;
 }
@@ -13139,24 +13137,9 @@ textarea {
   transition: 0.3s !important;
 }
 
-input[type=date] {
-  border-radius: 2px !important;
-  transition: 0.3s !important;
-}
-
 input:focus {
   box-shadow: 0 0 6px 0px #a4a1a0 !important;
   border-color: lightgray !important;
-}
-
-input[type=search] {
-  border: lightgray;
-  box-shadow: none;
-}
-
-input[type=search]:focus {
-  border: none;
-  box-shadow: 0 0px 5px 1px #c9cdca !important;
 }
 
 label {
@@ -13167,10 +13150,6 @@ label {
 input.date {
   border: 1px solid #dee2e6 !important;
   border-radius: 2px !important;
-}
-
-*:focus {
-  outline: 0 !important;
 }
 
 /*

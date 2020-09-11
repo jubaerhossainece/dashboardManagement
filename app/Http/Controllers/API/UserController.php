@@ -140,10 +140,15 @@ class UserController extends Controller
 
             \Image::make($request->photo)->save(public_path('images/profile/').$name);
             $request->merge(['photo' => $name]);
+
+            $userPhoto = public_path('images/profile/').$currentPhoto;
+            if(file_exists($userPhoto)   && ($currentPhoto != 'profile.jpg')){
+                @unlink($userPhoto);
+            }
         }
 
         if(!empty($request->password)){
-            $request->password = '123123';
+            $request->merge(['password' => Hash::make($request['password'])]);
         }
 
         $user->update($request->all());

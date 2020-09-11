@@ -210,13 +210,15 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-lg-3 col-form-label">Name</label>
                         <div class="col-lg-9">
-                          <input type="text" v-model = "form.name" name="name" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" v-model = "form.name" name="name" class="form-control" id="inputName" placeholder="Name" :class="{ 'is-invalid' : form.errors.has('name') }">
+                          <has-error :form="form" field="name"></has-error>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" name="email" class="col-lg-3 col-form-label">Email</label>
                         <div class="col-lg-9">
-                          <input type="email" v-model="form.email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="email" v-model="form.email" class="form-control" id="inputEmail" placeholder="Email Address" :class="{ 'is-invalid' : form.errors.has('email') }">
+                          <has-error :form="form" field="email"></has-error>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -226,9 +228,10 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-lg-3 col-form-label">Experience</label>
+                        <label for="inputExperience" class="col-lg-3 col-form-label">Bio</label>
                         <div class="col-lg-9">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                          <textarea v-model="form.bio" class="form-control" id="inputExperience" name="bio" placeholder="Write your bio" :class="{ 'is-invalid' : form.errors.has('bio') }"></textarea>
+                          <has-error :form="form" field="bio"></has-error>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -236,10 +239,22 @@
                         <div class="col-lg-9 input-group">
                           <div class="custom-file">
                             <input type="file" @change="changePhoto" name="profilePicture" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile" style="font-weight: 300">Choose file</label>
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                           </div>
                         </div>
                       </div>
+                      <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                      </div>
+                    </div>
+                  </div>
                      <!--  <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Profile Photo</label>
                         <div class="col-sm-10">
@@ -306,6 +321,9 @@
 
         methods: {
             updateInfo() {
+                if(this.form.password == ""){
+                this.form.password = undefined;
+                }
                 this.$Progress.start();
                 this.form.put('api/profile/')
                 .then(() => {
