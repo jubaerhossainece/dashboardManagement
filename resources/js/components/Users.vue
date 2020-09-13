@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" v-if="$gate.isAdmin()">
             <div class="card">
             <div class="card-header">
               <h3 class="card-title">Users DataTable</h3>
@@ -222,12 +222,15 @@
               this.createMode = false;
               this.showMode = false;
               this.form.reset();
+              if(this.$gate.isAdmin()) {
                 this.$Progress.start();
                 axios.get("/api/user")
                 .then(data => {
                     this.users = data.data.data
                     this.$Progress.finish();
-               })     
+               })
+                
+              }     
             },
 
             addUser(){

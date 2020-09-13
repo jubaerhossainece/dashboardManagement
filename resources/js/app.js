@@ -9,6 +9,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+//Importing Gater class
+import Gate from './Gate';
+Vue.prototype.$gate = new Gate(window.user);
+
 //Vform setup goes below 
 import { Form, HasError, AlertError } from 'vform'
 window.Form = Form;

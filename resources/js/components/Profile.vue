@@ -43,7 +43,7 @@
                 <h5 class="widget-user-desc text-right">Web Designer</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle" :src="'/images/profile/profile.jpg'" alt="User Avatar">
+                <img class="img-circle" :src="profilePicture()" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">
@@ -243,18 +243,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
-                    </div>
-                  </div>
+
                      <!--  <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Profile Photo</label>
                         <div class="col-sm-10">
@@ -304,6 +293,14 @@
 </template>
 
 <script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+
+<script>
     export default {
         data(){
             return {
@@ -335,6 +332,11 @@
                     
                 })
             },
+            profilePicture(){
+                let prefix = (this.form.photo.match(/\//) ? '' : '/images/profile/');
+                return prefix + this.form.photo;
+            },
+
             changePhoto(e){
                 let file = e.target.files[0];
                 let reader = new FileReader();
@@ -372,5 +374,7 @@
         }
     }
 </script>
+
+
 
 
