@@ -29,7 +29,8 @@ const routes = [
   { path: '/dashboard', component: require('./components/Dashboard.vue').default },
   { path: '/profile', component: require('./components/Profile.vue').default },
   { path: '/users', component: require('./components/Users.vue').default },
-  { path: '/developer', component: require('./components/Developer.vue').default }
+  { path: '/developer', component: require('./components/Developer.vue').default },
+  { path: '*', component: require('./components/notFound.vue').default }
 ]
 
 
@@ -49,6 +50,14 @@ Vue.component(
     require('./components/passport/PersonalAccessTokens.vue').default
 );
 
+//not found Vue componwent
+Vue.component(
+    'not-found',
+    require('./components/notFound.vue').default
+);
+
+//pagination Vue componwent
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 
 // 3. Initiate the router instance and pass the `routes` option
@@ -132,6 +141,8 @@ Vue.use(cxltToastr, toastrConfigs);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+
+window.Fire = new Vue();
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -140,5 +151,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-     router
-});
+     router,
+     data: {
+       search: ""
+     },
+     methods: {
+       searchQuery: _.debounce(() => {
+          Fire.$emit('searching');         
+       }, 1000)
+     }
+
+})

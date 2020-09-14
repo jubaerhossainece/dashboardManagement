@@ -13514,6 +13514,11 @@ span.empty {
   padding: 1rem;
 }
 
+.user-pagination {
+  display: flex;
+  justify-content: center;
+}
+
 button.btn-action {
   position: relative;
 }

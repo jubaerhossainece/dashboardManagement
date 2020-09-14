@@ -325,6 +325,10 @@ $(".custom-file-input").on("change", function() {
                 this.form.put('api/profile/')
                 .then(() => {
                 this.$Progress.finish();
+                this.$toast.success({
+                      title: 'Profile Updated!',
+                      message: 'Your profile has been updated successfully!'
+                    });
 
                 })
                 .catch(()=> {
@@ -332,6 +336,7 @@ $(".custom-file-input").on("change", function() {
                     
                 })
             },
+            
             profilePicture(){
                 let prefix = (this.form.photo.match(/\//) ? '' : '/images/profile/');
                 return prefix + this.form.photo;
